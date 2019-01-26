@@ -17,17 +17,22 @@ class Waves {
                         { key:'wave', frame:'wave12.png' }]
 
         this.scene.anims.create({ key: 'waving', frames: frameNames, frameRate: 7, repeat: -1 })
+        var gameWidth = this.scene.cameras.main.width
+        var xMin = gameWidth / 2
+        var xMax = gameWidth - 120
+        var yMin = this.scene.cameras.main.height/2 - 30
+        var yMax = this.scene.cameras.main.height/2 + 15
 
-        this.add(450,260,0xffffff)
-        this.add(500,300,0x1A3578)
-        this.add(380,290,0x7E91C1)
-        this.add(580,280,0x1A3578)
-        this.add(660,290,0x7E91C1)
-        this.add(385,265,0x1A3578)
-        this.add(395,284,0x1A3578)
-        this.add(740,268,0xB1A9BE)
-        this.add(700,275,0xB1A9BE)
-        this.add(400,289,0xB1A9BE)
+        this.add(xMin + 70, yMin,0xffffff)
+        this.add(xMin + 120 , yMin + 40 ,0x1A3578)
+        this.add(xMin,yMin + 30,0x7E91C1)
+        this.add(xMin + 200,yMin + 20,0x1A3578)
+        this.add(xMin + 280,yMin + 30,0x7E91C1)
+        this.add(xMin + 15,yMin + 5,0x1A3578)
+        this.add(xMin + 50,yMin + 24,0x1A3578)
+        this.add(xMin + 320,yMin + 8,0xB1A9BE)
+        this.add(xMin + 350,yMin + 15,0xB1A9BE)
+        this.add(xMin + 20,yMin + 29,0xB1A9BE)
     }
 
     add(x,y,tint) {

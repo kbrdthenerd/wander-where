@@ -6,8 +6,8 @@ class Game extends React.Component {
         var config = {
           type: Phaser.AUTO,
           parent: 'phaser-game',
-          width: 1530 / 2,
-          height: 1146 / 2,
+          width: 2224 / 2.5,
+          height: 1668 / 2.5,
           backgroundColor: 0x000000,
           scene: [Background, GamePlay]
         };
