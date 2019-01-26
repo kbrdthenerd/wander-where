@@ -2,8 +2,19 @@ class Thoughts {
     constructor(scene) {
         this.scene = scene
         this.group = scene.physics.add.group()
+        this.thoughtsCollected = {
+            away: 0,
+            home: 0
+        }
 
         this.scene.physics.add.overlap(this.scene.player.kayak, this.group, this.think, null, scene);
+
+        this.thoughtText = {
+            away: scene.add.text(140, 0, 'No thoughts of away ', { fontSize: '32px', fill: '#ffffff' }),
+            home: scene.add.text(120, this.scene.cameras.main.height - 50, 'No thoughts of home ', { fontSize: '32px', fill: '#ffffff' })
+        }
+        this.thoughtText.away.setFontFamily('font1');
+        this.thoughtText.home.setFontFamily('font1');
 
     }
 
@@ -27,6 +38,11 @@ class Thoughts {
     }
 
     think(player, thought) {
+        this.thoughts.thoughtsCollected[thought.type]++
+        var thoughtsOfType = this.thoughts.thoughtsCollected[thought.type]
+        var grammarStuff = thoughtsOfType > 1 ? 'thoughts' : 'thought'
+
+        this.thoughts.thoughtText[thought.type].setText(`${thoughtsOfType} ${grammarStuff} of ${thought.type}`)
         thought.destroy()
     }
 
