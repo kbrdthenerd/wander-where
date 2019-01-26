@@ -17,7 +17,6 @@ class GamePlay extends Phaser.Scene {
     }
 
     create() {
-        this.cursors = this.input.keyboard.createCursorKeys();
         this.waves = new Waves(this)
         this.player = new Player(this)
         this.thoughts = new Thoughts(this)

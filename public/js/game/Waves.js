@@ -24,15 +24,17 @@ class Waves {
         var yMax = this.scene.cameras.main.height/2 + 15
 
         this.add(xMin + 70, yMin,0xffffff)
-        this.add(xMin + 120 , yMin + 40 ,0x1A3578)
-        this.add(xMin,yMin + 30,0x7E91C1)
-        this.add(xMin + 200,yMin + 20,0x1A3578)
-        this.add(xMin + 280,yMin + 30,0x7E91C1)
-        this.add(xMin + 15,yMin + 5,0x1A3578)
-        this.add(xMin + 50,yMin + 24,0x1A3578)
-        this.add(xMin + 320,yMin + 8,0xB1A9BE)
-        this.add(xMin + 350,yMin + 15,0xB1A9BE)
-        this.add(xMin + 20,yMin + 29,0xB1A9BE)
+        this.add(xMin + 175, yMin + 30,0xffffff)
+        this.add(xMin + 300, yMin + 15,0xffffff)
+        // this.add(xMin + 120 , yMin + 40 ,0x1A3578)
+        // this.add(xMin,yMin + 30,0x7E91C1)
+        // this.add(xMin + 200,yMin + 20,0x1A3578)
+        // this.add(xMin + 280,yMin + 30,0x7E91C1)
+        // this.add(xMin + 15,yMin + 5,0x1A3578)
+        // this.add(xMin + 50,yMin + 24,0x1A3578)
+        // this.add(xMin + 320,yMin + 8,0xB1A9BE)
+        // this.add(xMin + 350,yMin + 15,0xB1A9BE)
+        // this.add(xMin + 20,yMin + 29,0xB1A9BE)
     }
 
     add(x,y,tint) {
