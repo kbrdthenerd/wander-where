@@ -14,6 +14,7 @@ class GamePlay extends Phaser.Scene {
         this.load.multiatlas('wave', 'assets/wave.json', 'assets')
         this.load.image('kayak', 'assets/kayak.png')
         this.load.image('thought', 'assets/thought.png')
+        this.load.image('oar', 'assets/oar.png')
     }
 
     create() {
