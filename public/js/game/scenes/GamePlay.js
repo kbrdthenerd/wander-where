@@ -12,16 +12,26 @@ class GamePlay extends Phaser.Scene {
 
     preload() {
         this.load.multiatlas('wave', 'assets/wave.json', 'assets')
-            this.load.image('kayak', 'assets/kayak.png')
+        this.load.image('kayak', 'assets/kayak.png')
+        this.load.image('thought', 'assets/thought.png')
     }
 
     create() {
         this.cursors = this.input.keyboard.createCursorKeys();
         this.waves = new Waves(this)
         this.player = new Player(this)
+        this.thoughts = new Thoughts(this)
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.addThought, callbackScope: this, repeat: 0});﻿﻿
+
     }
 
     update() {
         this.player.update()
+        this.thoughts.update()
+    }
+
+    addThought() {
+        this.thoughts.add()
+        this.timedEvent.reset({ delay: Phaser.Math.Between(500,1000), callback: this.addThought, callbackScope: this, repeat: 1});
     }
 }

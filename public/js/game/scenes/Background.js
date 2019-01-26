@@ -8,8 +8,8 @@ class Background extends Phaser.Scene {
     }
 
     create() {
-        this.width = 1530 / 2
-        this.height = 1146 / 2
+        this.width = this.cameras.main.width
+        this.height = this.cameras.main.height
         this.background = this.add.image(this.width / 2, this.height / 2, 'background');
         this.background.setDisplaySize(this.width, this.height)
     }
