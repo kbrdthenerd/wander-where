@@ -10,7 +10,7 @@ class Thoughts {
         this.scene.physics.add.overlap(this.scene.player.kayak, this.group, this.think, null, scene);
 
         this.thoughtText = {
-            away: scene.add.text(140, 0, 'No thoughts of away ', { fontSize: '32px', fill: '#ffffff' }),
+            away: scene.add.text(140, 0, 'No thoughts of away ', { fontSize: '32px', fill: '#ffd42a' }),
             home: scene.add.text(120, this.scene.cameras.main.height - 50, 'No thoughts of home ', { fontSize: '32px', fill: '#ffffff' })
         }
         this.thoughtText.away.setFontFamily('font1');
@@ -31,9 +31,9 @@ class Thoughts {
     add() {
         var gameWidth = this.scene.cameras.main.width
         if(Phaser.Math.Between(0,1)) {
-            this.createThought(Phaser.Math.Between(gameWidth / 2.2, gameWidth - 120), -10, 0x00ff00, 'away')
+            this.createThought(Phaser.Math.Between(gameWidth / 2.2, gameWidth - 120), -10, 0xffd42a, 'away')
         } else {
-            this.createThought(Phaser.Math.Between(gameWidth / 2.2, gameWidth - 120), this.scene.cameras.main.height + 10, 0x0000ff, 'home')
+            this.createThought(Phaser.Math.Between(gameWidth / 2.2, gameWidth - 120), this.scene.cameras.main.height + 10, 0xffffff, 'home')
         }
     }
 
