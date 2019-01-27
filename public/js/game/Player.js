@@ -24,7 +24,6 @@ class Player {
 
     update() {
         this.updateKayak()
-        this.updateOar()
     }
 
     updateKayak() {
@@ -36,9 +35,9 @@ class Player {
             }
 
             var maxDistance = this.scene.cameras.main.width/2
-            //if(this.scene.thoughts.thoughtsCollected.away + this.scene.thoughts.thoughtsCollected.home >= 10) {
+            if(this.scene.thoughts.thoughtsCollected.away + this.scene.thoughts.thoughtsCollected.home >= 10 && !this.scene.thoughts.areEqual()) {
                 maxDistance = this.scene.cameras.main.width/3.5
-            //}
+            }
 
             if (this.kayak.x > maxDistance && (this.scene.key.isDown || this.scene.input.activePointer.isDown)) {
                 this.kayak.x-=2
@@ -48,12 +47,12 @@ class Player {
             }
         }
 
-            if(!this.kayak.done && this.kayak.x < this.scene.cameras.main.width/3.5) {
-                this.kayak.done = true
-                this.turnKayak()
-            }
+        if(!this.kayak.done && this.kayak.x < this.scene.cameras.main.width/3.5) {
+            this.kayak.done = true
+            this.turnKayak()
+        }
 
-        if(this.kayak.rotation > 1) {
+        if(Math.abs(this.kayak.rotation) > 1) {
             this.kayak.doneTurning = true
             this.kayak.body.angularVelocity = 0
             this.oar.body.angularVelocity = 0
@@ -61,13 +60,13 @@ class Player {
     }
 
     turnKayak() {
-        this.kayak.body.setAngularVelocity(10)
-        this.oar.body.setAngularVelocity(10)
-    }
-
-    updateOar() {
-
-
+        if(this.scene.thoughts.mostThoughts() == 'away' ) {
+            this.kayak.body.setAngularVelocity(10)
+            this.oar.body.setAngularVelocity(10)
+        } else {
+            this.kayak.body.setAngularVelocity(-10)
+            this.oar.body.setAngularVelocity(-10)
+        }
     }
 
 }

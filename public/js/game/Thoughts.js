@@ -57,4 +57,16 @@ class Thoughts {
         thought.type = type
         this.group.add(thought)
     }
+
+    mostThoughts() {
+        if(this.thoughtsCollected.away > this.thoughtsCollected.home) {
+            return 'away'
+        } else {
+            return 'home'
+        }
+    }
+
+    areEqual() {
+        return this.thoughtsCollected.away == this.thoughtsCollected.home
+    }
 }
