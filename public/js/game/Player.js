@@ -28,17 +28,41 @@ class Player {
     }
 
     updateKayak() {
-        if(this.kayak.x < this.scene.cameras.main.width - 60) {
-            this.kayak.x+=0.5
-            this.oar.x+=0.5
+        if(!this.kayak.done) {
+            if(this.kayak.x < this.scene.cameras.main.width - 60) {
+                this.kayak.x+=0.5
+                this.oar.x+=0.5
 
+            }
+
+            var maxDistance = this.scene.cameras.main.width/2
+            //if(this.scene.thoughts.thoughtsCollected.away + this.scene.thoughts.thoughtsCollected.home >= 10) {
+                maxDistance = this.scene.cameras.main.width/3.5
+            //}
+
+            if (this.kayak.x > maxDistance && (this.scene.key.isDown || this.scene.input.activePointer.isDown)) {
+                this.kayak.x-=2
+                this.oar.x-=2
+            } else {
+                this.oar.rotation = 0
+            }
         }
-        if (this.kayak.x > this.scene.cameras.main.width/3.5 && (this.scene.key.isDown || this.scene.input.activePointer.isDown)) {
-            this.kayak.x-=2
-            this.oar.x-=2
-        } else {
-            this.oar.rotation = 0
+
+            if(!this.kayak.done && this.kayak.x < this.scene.cameras.main.width/3.5) {
+                this.kayak.done = true
+                this.turnKayak()
+            }
+
+        if(this.kayak.rotation > 1) {
+            this.kayak.doneTurning = true
+            this.kayak.body.angularVelocity = 0
+            this.oar.body.angularVelocity = 0
         }
+    }
+
+    turnKayak() {
+        this.kayak.body.setAngularVelocity(10)
+        this.oar.body.setAngularVelocity(10)
     }
 
     updateOar() {
