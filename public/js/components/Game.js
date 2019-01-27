@@ -9,7 +9,7 @@ class Game extends React.Component {
           width: 2224 / 2.5,
           height: 1668 / 2.5,
           backgroundColor: 0x000000,
-          scene: [Background, GamePlay, Note]
+          scene: [Background, GamePlay]
         };
 
         game = new Phaser.Game(config);
