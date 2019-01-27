@@ -6,6 +6,10 @@ class Note {
         this.text = scene.add.text(scene.cameras.main.width / 2 - 300, scene.cameras.main.height / 2 - 100, 'You travel to London and meet the love of your life\n\nPress space or click to play again', { fontSize: '24px', fill: '#ffd42a' })
         this.text.setFontFamily('font1')
         this.text.setAlpha(0)
+
+        if(scene.thoughts.mostThoughts() == 'home') {
+            this.text.setText('You go with out friends and have a wonderful day\nin Forest Park\nPress space or click to play again')
+        }
         this.note.depth = 1
         this.text.depth = 2
     }

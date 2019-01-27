@@ -41,7 +41,7 @@ class GamePlay extends Phaser.Scene {
         this.timedEvent.reset({ delay: Phaser.Math.Between(500,1000), callback: this.addThought, callbackScope: this, repeat: 1});
     }
 
-    startMusic(scene) {
+    startMusic() {
         var music = this.sound.add('music', {
             mute: false,
             volume: 1,

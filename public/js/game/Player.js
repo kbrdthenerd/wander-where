@@ -35,7 +35,7 @@ class Player {
             }
 
             var maxDistance = this.scene.cameras.main.width/2
-            if(this.scene.thoughts.thoughtsCollected.away + this.scene.thoughts.thoughtsCollected.home >= 1 && !this.scene.thoughts.areEqual()) {
+            if(this.scene.thoughts.thoughtsCollected.away + this.scene.thoughts.thoughtsCollected.home >= 10 && !this.scene.thoughts.areEqual()) {
                 maxDistance = this.scene.cameras.main.width/3.5
             }
 
