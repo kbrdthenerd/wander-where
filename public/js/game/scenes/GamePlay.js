@@ -24,8 +24,8 @@ class GamePlay extends Phaser.Scene {
         this.waves = new Waves(this)
         this.player = new Player(this)
         this.thoughts = new Thoughts(this)
-        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.addThought, callbackScope: this, repeat: 0});﻿﻿
-
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.addThought, callbackScope: this, repeat: 0});﻿
+        this.scene.start('Note')
     }
 
     update() {

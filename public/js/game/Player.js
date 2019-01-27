@@ -56,6 +56,7 @@ class Player {
             this.kayak.doneTurning = true
             this.kayak.body.angularVelocity = 0
             this.oar.body.angularVelocity = 0
+            this.scene.scene.start('Note')
         }
     }
 
