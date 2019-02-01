@@ -23,15 +23,24 @@ class Waves {
         var yMin = this.scene.cameras.main.height/2 - 30
         var yMax = this.scene.cameras.main.height/2 + 15
 
-        this.add(xMin + 70, yMin,0xffffff)
-        this.add(xMin + 175, yMin + 30,0xffffff)
-        this.add(xMin + 300, yMin + 15,0xffffff)
+        this.add(xMin + 70, yMin,0xffffff, 0)
+        this.add(xMin + 175, yMin + 30,0xffffff, 0)
+        this.add(xMin + 300, yMin + 15,0xffffff, 0)
+
+        this.add(xMin + 70, yMin,0xffffff, 0)
+        this.add(xMin + 175, yMin + 30,0xffffff, 0)
+        this.add(xMin + 300, yMin + 15,0xffffff, 0)
+
+        this.add(0, 60,0xffffff, 70)
+        this.add(110, 110,0xffffff, 70)
+        this.add(150, 170 + 30,0xffffff, 70)
     }
 
-    add(x,y,tint) {
+    add(x,y,tint, rotation) {
         var wave = this.scene.add.sprite(x, y, 'wave', 'wave1.png');
         wave.setScale(0.25, 0.3)
         wave.setTint(tint)
+        wave.rotation = rotation
         wave.anims.play('waving')
         this.group.add(wave)
     }
