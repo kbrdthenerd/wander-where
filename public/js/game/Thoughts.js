@@ -66,6 +66,10 @@ class Thoughts {
         }
     }
 
+    hasEnoughThoughts() {
+        return this.thoughtsCollected.away + this.thoughtsCollected.home >= 10
+    }
+
     areEqual() {
         return this.thoughtsCollected.away == this.thoughtsCollected.home
     }

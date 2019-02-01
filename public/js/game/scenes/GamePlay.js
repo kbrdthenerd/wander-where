@@ -17,6 +17,7 @@ class GamePlay extends Phaser.Scene {
         this.load.image('thought', 'assets/thought.png')
         this.load.image('oar', 'assets/oar.png')
         this.load.image('note', 'assets/note.png');
+        this.load.image('glow', 'assets/glow.png');
     }
 
     create() {
@@ -25,12 +26,14 @@ class GamePlay extends Phaser.Scene {
         this.waves = new Waves(this)
         this.player = new Player(this)
         this.thoughts = new Thoughts(this)
+        this.glow = new Glow(this)
         this.timedEvent = this.time.addEvent({ delay: 0, callback: this.addThought, callbackScope: this, repeat: 0});﻿
     }
 
     update() {
         this.player.update()
         this.thoughts.update()
+        this.glow.update()
         if(this.note) {
             this.note.update()
         }
