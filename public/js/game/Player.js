@@ -16,10 +16,10 @@ class Player {
     }
 
     buildOar() {
-        this.oar = this.scene.physics.add.sprite(this.scene.cameras.main.width - 59,this.scene.cameras.main.height/2 - 32, 'oar')
-        this.oar.setDisplaySize(20, 100)
-        this.oar.setSize(20, 100)
-        this.oar.setOrigin(0.5,0.5)
+        this.oar = this.scene.physics.add.sprite(this.scene.cameras.main.width - 59,this.scene.cameras.main.height/2 - 10, 'oar')
+        this.oar.setDisplaySize(10, 75)
+        this.oar.setSize(10, 75)
+        this.oar.setAngularVelocity(-20)
     }
 
     update() {
@@ -40,6 +40,14 @@ class Player {
             }
 
             if (this.kayak.x > maxDistance && (this.scene.key.isDown || this.scene.input.activePointer.isDown)) {
+                if(this.oar.rotation < -.15) {
+                    this.oar.setAngularVelocity(20)
+                }
+
+                if(this.oar.rotation > 0.15) {
+                    this.oar.setAngularVelocity(-20)
+                }
+
                 this.kayak.x-=2
                 this.oar.x-=2
             } else {
