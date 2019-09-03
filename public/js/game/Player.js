@@ -13,6 +13,9 @@ class Player {
         var kayakHeight = 115 / 4
         this.kayak.setSize(kayakWidth, kayakHeight)
         this.kayak.setDisplaySize(kayakWidth , kayakHeight)
+        this.anchor = this.scene.physics.add.sprite(-10, -10, 'kayak')
+        this.anchor.setDisplaySize(1, 1)
+        this.anchor.setSize(1, 1)
     }
 
     buildOar() {
@@ -60,15 +63,18 @@ class Player {
             this.turnKayak()
         }
 
+
         if(Math.abs(this.kayak.rotation) > 1) {
             this.kayak.doneTurning = true
             this.kayak.body.angularVelocity = 0
             this.oar.body.angularVelocity = 0
             if(!this.noteShown) {
+                this.scene.physics.moveToObject(this.kayak, this.anchor, 150)
+                this.scene.physics.moveToObject(this.oar, this.anchor, 150)
                 this.scene.note = new Note(this.scene)
                 this.noteShown = true
             }
-        }
+        } 
     }
 
     turnKayak() {
@@ -76,6 +82,7 @@ class Player {
             this.kayak.body.setAngularVelocity(10)
             this.oar.body.setAngularVelocity(10)
         } else {
+            this.anchor.y = 566
             this.kayak.body.setAngularVelocity(-10)
             this.oar.body.setAngularVelocity(-10)
         }

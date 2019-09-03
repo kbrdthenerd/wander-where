@@ -1,7 +1,7 @@
 class Glow {
     constructor(scene) {
         this.scene = scene
-        this.glow = this.scene.physics.add.sprite(270,this.scene.cameras.main.height/2 - 10, 'glow')
+        this.glow = this.scene.physics.add.sprite(225,this.scene.cameras.main.height/2 - 10, 'glow')
         this.glow.setDisplaySize(350 , 350)
         this.glow.setAlpha(0)
 

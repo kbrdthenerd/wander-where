@@ -2,12 +2,11 @@ var game;
 
 class Game extends React.Component {
     componentDidMount() {
-        var smallestDimension = Math.min(window.innerWidth, window.innerHeight)
         var config = {
           type: Phaser.AUTO,
           parent: 'phaser-game',
-          width: 2224 / 2.5,
-          height: 1668 / 2.5,
+          width: 741,
+          height: 556,
           backgroundColor: 0x000000,
           scene: [Background, GamePlay]
         };
